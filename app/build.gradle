@@ -1,0 +1,26 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'com.hwz.nettv'
+    compileSdk 36
+    defaultConfig {
+        applicationId 'com.hwz.nettv'
+        minSdk 28
+        targetSdk 34
+        versionCode 11
+        versionName '1.3.5'
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        ndk { abiFilters 'armeabi-v7a', 'arm64-v8a' }
+    }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_1_8; targetCompatibility JavaVersion.VERSION_1_8 }
+    splits { abi { enable true; reset(); include 'armeabi-v7a', 'arm64-v8a'; universalApk true } }
+    packaging { jniLibs { useLegacyPackaging = true }; resources { excludes += ['META-INF/INDEX.LIST', 'META-INF/versions/9/OSGI-INF/MANIFEST.MF'] } }
+}
+dependencies {
+    implementation 'org.videolan.android:libvlc-all:3.7.7'
+    implementation 'eu.agno3.jcifs:jcifs-ng:2.1.10'
+    implementation 'org.slf4j:slf4j-nop:1.7.36'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.6.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.3.0'
+}

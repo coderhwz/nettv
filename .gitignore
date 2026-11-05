@@ -1,0 +1,14 @@
+.gradle/
+.idea/
+local.properties
+**/build/
+*.iml
+
+# Local APK archives are published as GitHub Release assets.
+dist/
+.DS_Store
+*.jks
+*.keystore
+key.properties
+.env
+.env.*
